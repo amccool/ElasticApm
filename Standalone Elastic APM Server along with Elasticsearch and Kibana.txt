@@ -1,0 +1,19 @@
+# Install an eck-managed Elasticsearch, Kibana, and standalone APM Server using custom values.
+helm install eck-stack-with-apm-server elastic/eck-stack \
+    --values https://raw.githubusercontent.com/elastic/cloud-on-k8s/{{eck_release_branch}}/deploy/eck-stack/examples/apm-server/basic.yaml -n elastic-stack
+
+
+helm install es-apm-server elastic/eck-stack --create-namespace -n alex-es --values apm-basic.yaml
+helm upgrade es-apm-server elastic/eck-stack --create-namespace -n alex-es --values apm-basic.yaml
+
+
+PS C:\Users\AlexMcCool\source\repos\escribe\ElasticApm> helm list -n alex-es
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+es-apm-server   alex-es         1               2025-05-08 11:41:50.2532749 -0400 EDT   deployed        eck-stack-0.15.0
+
+
+https://raw.githubusercontent.com/elastic/cloud-on-k8s/{{eck_release_branch}}/deploy/eck-stack/examples/apm-server/basic.yaml 
+
+
+Notes:
+2025-05-14 --- removed all helm installs (es1, es2, dashboard)
