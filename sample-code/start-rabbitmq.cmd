@@ -1,0 +1,1 @@
+ docker run --rm -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=password -e RABBITMQ_DEFAULT_VHOST=sample-dotnet-otel -p 5672:5672 -p 15672:15672 rabbitmq:3.12-management
