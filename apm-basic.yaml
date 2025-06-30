@@ -32,7 +32,7 @@ eck-kibana:
 
   config:
     server:
-      publicBaseUrl: "https://kibana.alex.dev"
+      publicBaseUrl: https://kibana.alex.dev
 
   # http:
   #   service:
@@ -45,9 +45,14 @@ eck-kibana:
 
   ingress:
     enabled: true
+    annotations:
+      #kubernetes.io/ingress.class: nginx
+      #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      #nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      traefik.ingress.kubernetes.io/router.entrypoints: web
     pathType: Prefix
     hosts:
-    - host: "kibana.alex.dev"
+    - host: kibana.alex.dev
       path: "/"
     tls:
       enabled: true

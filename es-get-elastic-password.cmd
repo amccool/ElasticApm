@@ -1,0 +1,1 @@
+kubectl get secret -n elastic-stack elasticsearch-es-elastic-user  -o go-template='{{.data.elastic | base64decode }}'

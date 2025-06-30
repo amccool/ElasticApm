@@ -17,3 +17,16 @@ https://raw.githubusercontent.com/elastic/cloud-on-k8s/{{eck_release_branch}}/de
 
 Notes:
 2025-05-14 --- removed all helm installs (es1, es2, dashboard)
+
+
+ kubectl get elastic -n elastic-stack -l "app.kubernetes.io/instance=elasticstack-w-apm"
+
+
+
+ helm install es-kb-quickstart elastic/eck-stack -n elastic-stack --create-namespace
+  --set=eck-elasticsearch.ingress.enabled=true 
+  --set=eck-elasticsearch.ingress.hosts[0].host=elasticsearch.example.com 
+  --set=eck-elasticsearch.ingress.hosts[0].path="/"
+  --set=eck-kibana.ingress.enabled=true 
+  --set=eck-kibana.ingress.hosts[0].host=kibana.example.com 
+  --set=eck-kibana.ingress.hosts[0].path="/"

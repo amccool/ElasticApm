@@ -1,0 +1,1 @@
+kubectl get secret/elasticstack-w-apm-eck-apm-server-apm-token -n elastic-stack  -o go-template='{{index .data "secret-token" | base64decode}}'

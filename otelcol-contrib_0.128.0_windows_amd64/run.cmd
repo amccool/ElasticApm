@@ -1,0 +1,1 @@
+.\otelcol-contrib.exe --config .\otel-collector.yaml
